@@ -46,7 +46,7 @@ namespace ClassActivity.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Description")] NewModel newModel)
+        public ActionResult Create([Bind(Include = "NewModelId,Description")] NewModel newModel)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ClassActivity.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Description")] NewModel newModel)
+        public ActionResult Edit([Bind(Include = "NewModelId,Description")] NewModel newModel)
         {
             if (ModelState.IsValid)
             {

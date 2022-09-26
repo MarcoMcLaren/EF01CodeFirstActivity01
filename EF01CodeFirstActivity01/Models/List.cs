@@ -31,8 +31,6 @@ namespace ClassActivity.Models
        
         //ForeignKey
 
-
-
         //ForeignKey
         public int? NewModelId { get; set; }
 
@@ -40,9 +38,5 @@ namespace ClassActivity.Models
         [Display(Name = "Type")]
         public virtual NewModel NewModel { get; set; }
         //ForeignKey
-
-
-
-
     }
 }

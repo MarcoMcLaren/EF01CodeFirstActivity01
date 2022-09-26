@@ -9,6 +9,7 @@ namespace ClassActivity.Models
         //A DbContext instance represents a session with the database and can be used to query and save instances of your entities
         public DbSet<List> Lists { get; set; } //Table 1
         public DbSet<ListItemType> ListItemTypes { get; set; } //Table 2
+        public DbSet<NewModel> NewModels { get; set; } //Table 3
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
             {
@@ -21,8 +22,15 @@ namespace ClassActivity.Models
                 .WillCascadeOnDelete(true);
 
             base.OnModelCreating(modelBuilder);
-            }
 
-        public System.Data.Entity.DbSet<ClassActivity.Models.NewModel> NewModels { get; set; }
+            modelBuilder.Entity<NewModel>()
+                .HasMany(zz => zz.Lists)
+                .WithOptional(zz => zz.NewModel)
+                .HasForeignKey(zz => zz.NewModelId)
+                .WillCascadeOnDelete(true);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
     }

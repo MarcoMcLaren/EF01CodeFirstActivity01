@@ -2,11 +2,24 @@
 using System.Data.Entity;
 
 namespace ClassActivity.Models
-    {
+{
     public class ListInitializer : DropCreateDatabaseIfModelChanges<ListDbContext>
-        {
+    {
         protected override void Seed(ListDbContext context)
-            {
+        {
+            //var NewModels = new List<NewModel>
+            //{
+            //    new NewModel{
+            //       NewModelId = 1,
+            //       Description = "Hello"
+            //        },
+            //    new NewModel{
+            //       NewModelId = 2,
+            //       Description = "Wassuuuuup"
+            //        },
+            //};
+
+
             var Lists = new List<List>
             {
                 new List{
@@ -38,13 +51,13 @@ namespace ClassActivity.Models
             {
                 var ListItemTypes = new List<ListItemType>
                 {
-                new ListItemType{
+                    new ListItemType{
                     ListItemTypeID=1,
                     ListItemTypeDescription="ExampleType 01"},
-                new ListItemType{
+                    new ListItemType{
                     ListItemTypeID=2,
                     ListItemTypeDescription="ExampleType 02"}
-                    };
+                };
 
                     {
                     Lists.ForEach(xx => context.Lists.Add(xx));
@@ -52,13 +65,26 @@ namespace ClassActivity.Models
 
                     context.SaveChanges();
                     }
-                }
-            {
-                var NewModel = new List<NewModel>
-                {
-                    new NewModel{NewModelId = 1, Description = "Hello"}
-                };
             }
+
+
+
+            {
+                var NewModels = new List<NewModel>
+                {
+                    new NewModel{
+                   NewModelId = 1,
+                    Description= "Hello"},
+
+                };
+
+                {
+                    Lists.ForEach(xx => context.Lists.Add(xx));
+                    NewModels.ForEach(yy => context.NewModels.Add(yy));
+
+                    context.SaveChanges();
+                }
             }
         }
     }
+}

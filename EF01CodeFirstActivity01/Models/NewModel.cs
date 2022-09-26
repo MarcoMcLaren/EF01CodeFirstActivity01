@@ -9,11 +9,11 @@ namespace ClassActivity.Models
     public class NewModel
     {
         [Key]
-        [Display(Name = "NewModelId")]
         public int NewModelId { get; set; }
 
         [Required]
         [Display(Name = "Description")]
         public string Description { get; set; }
+        public virtual ICollection<List> Lists { get; set; }
     }
 }
